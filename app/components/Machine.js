@@ -18,11 +18,7 @@ class Machine extends React.Component {
           <div className="Machine-footer footer">
             <p>I don't care I SHIP IT ! Why not ?</p>
           </div>
-          <a href="#" onclick="console.log('The link was clicked.'); return false">
-            Click me
-          </a>
         </div>
-        <hr/>
       </div>
     );
   }
