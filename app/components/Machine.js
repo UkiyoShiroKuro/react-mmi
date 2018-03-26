@@ -19,7 +19,6 @@ class Machine extends React.Component {
             <p>I don't care I SHIP IT ! Why not ?</p>
           </div>
         </div>
-        <hr/>
       </div>
     );
   }

@@ -26,7 +26,7 @@ class Toggle extends React.Component {
                 </div>
                 <button onClick={this.handleClick}>
                         {this.state.isToggleOn ? 'YES' : 'NO'}
-                    </button>
+                </button>
             </div>
             <hr/>
         </div>
