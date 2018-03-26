@@ -8,7 +8,23 @@ import React from 'react';
 class Machine extends React.Component {
   render() {
     // Dans tous les cas, afficher
-    return <p>Machine 1</p>
+    return (
+      <div>
+        <div className="Machine big">
+          <div className="Machine-header header">
+            <h2>La vie se résume à ça : </h2>
+          </div>
+          <p className="text">{this.props.name}</p> | {this.props.isActive}
+          <div className="Machine-footer footer">
+            <p>I don't care I SHIP IT ! Why not ?</p>
+          </div>
+          <a href="#" onclick="console.log('The link was clicked.'); return false">
+            Click me
+          </a>
+        </div>
+        <hr/>
+      </div>
+    );
   }
 }
 
