@@ -23,10 +23,15 @@ export default function App() {
       <Header/>
       
       <Machine name="Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-" isActive="yes"/>
-      <Machine name="Shit... Harry and Draco will be in laws" isActive="yes"/>
-      <Machine name="Shit... Weasley's and Malfoy's family will be in laws" isActive="yes"/>
-      <Machine name="Shit... Who will be planning the wedding between Molly and Narcissa ?!!!" isActive="no"/>
+      <Bouton isToggleOn="true"/>
       
+      <Machine name="Shit... Harry and Draco will be in laws" isActive="yes"/>
+      <Bouton isToggleOn="true"/>
+      
+      <Machine name="Shit... Weasley's and Malfoy's family will be in laws" isActive="yes"/>
+      <Bouton isToggleOn="true"/>
+      
+      <Machine name="Shit... Who will be planning the wedding between Molly and Narcissa ?!!!" isActive="no"/>
       <Bouton isToggleOn="true"/>
       
       <Footer/>

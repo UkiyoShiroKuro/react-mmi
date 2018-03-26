@@ -29,6 +29,23 @@
     font-weight: bold;
 }
 
+
+/*BOUTON*/
+
+.Bouton{
+    text-align: right;
+    margin-right: 20%;
+    margin-left: auto;
+}
+
+.machine-active h2{
+    color: green;
+}
+
+.machine-desactivee h2{
+    color: red;
+}
+
 button{
     background-color: black;
     color: white;

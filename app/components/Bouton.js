@@ -19,13 +19,16 @@ class Toggle extends React.Component {
 
   render() {
     return (
-        <div className={this.state.isToggleOn ? "machine-active" : "machine-desactivee"}>
-            <h2>HeadCanon ?</h2>
-            <p>{this.props.isToggleOn}</p>
-            
-            <button onClick={this.handleClick}>
-                {this.state.isToggleOn ? 'YES' : 'NO'}
-            </button>
+        <div>
+            <div className="Bouton">
+                <div className={this.state.isToggleOn ? "machine-active" : "machine-desactivee"}>
+                    <h2>HeadCanon ?</h2>
+                </div>
+                <button onClick={this.handleClick}>
+                        {this.state.isToggleOn ? 'YES' : 'NO'}
+                    </button>
+            </div>
+            <hr/>
         </div>
     );
   }
