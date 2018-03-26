@@ -1,0 +1,35 @@
+.h{
+    text-align: center;
+    background-color: orange;
+    padding: 1rem;
+}
+
+.f{
+    text-align: center;
+    background-color: orange;
+    padding: 0.3rem;
+}
+
+.header{
+    font-weight: bolder;
+    color: red;
+}
+
+.footer{
+    font-size: smaller;
+    font-style: italic;
+    margin-left: 2rem;
+}
+
+.big{
+    margin-left: 35%;
+}
+
+.text{
+    font-weight: bold;
+}
+
+button{
+    background-color: black;
+    color: white;
+}
