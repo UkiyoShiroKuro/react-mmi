@@ -22,10 +22,12 @@ class Toggle extends React.Component {
         <div>
             <div className="Bouton">
                 <div className={this.state.isToggleOn ? "machine-active" : "machine-desactivee"}>
-                    <h2>HeadCanon ?</h2>
+                    <h2>HeadCanon :
+                    {this.state.isToggleOn ? " Of COURSE" : " NOT REALLY MY TASTE"}
+                    </h2>
                 </div>
                 <button onClick={this.handleClick}>
-                        {this.state.isToggleOn ? 'YES' : 'NO'}
+                        {this.state.isToggleOn ? 'NO' : 'YES'}
                 </button>
             </div>
             <hr/>
