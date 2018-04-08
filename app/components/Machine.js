@@ -12,9 +12,9 @@ class Machine extends React.Component {
       <div>
         <div className="Machine big">
           <div className="Machine-header header">
-            <h2>La vie se résume à ça : </h2>
+            <h2>{this.props.name} La vie se résume à ça : </h2>
           </div>
-          <p className="text">{this.props.name}</p> | {this.props.isActive}
+          <p className="text">{this.props.desc}</p> | {this.props.isActive}
           <div className="Machine-footer footer">
             <p>I don't care I SHIP IT ! Why not ?</p>
           </div>
