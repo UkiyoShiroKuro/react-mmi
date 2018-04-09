@@ -4,42 +4,38 @@
  *
  */
 import React from 'react';
+import Toggle from 'react-toggle';
+import "react-toggle/style.css";
 
-/*class Machine extends React.Component {
-  onToggleClick() {
-    console.log('Clic sur le bouton ------- ');	+    // On envoie l'index à la méthode qui changera la valeur
-    // On accède dans cette méthode à ce qu'on a passé en props au composant	+    // La méthode et son argument sont tous les deux accessibles
-    console.log(this.props.name);	+    // via des props qui ont été passées au composant
-    this.props.handleStatusChange(this.props.index);
-   }
-   
-   
-  render() {
-    // Dans tous les cas, afficher
-    /*return (
-      <div>
-        <div className="Machine big">
-          <div className= "Machine-header header">
-            <h2>{this.props.name} La vie se résume à ça : </h2>
-          </div>
-          <p className="text">{this.props.desc}</p>
-          <div className="Machine-footer footer">
-            <p>I don't care I SHIP IT ! Why not ?</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}*/
 
 class Machine extends React.Component {
   // Méthode lancée au clic sur le bouton "Toggle"
+  /*constructor(props) {
+    super(props);
+    this.state = {
+      isActive: true
+    };
+    
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick() {
+    this.setState(prevState => ({
+      isActive: !prevState.isActive
+    }));
+  }*/
+  
   onToggleClick() {
     // On envoie l'index à la méthode qui changera la valeur
     // La méthode et son argument sont tous les deux accessibles
     // via des props qui ont été passées au composant
     this.props.handleStatusChange(this.props.index);
+    console.log('Clic sur le bouton ------- ');	   // On envoie l'index à la méthode qui changera la valeur
+    // On accède dans cette méthode à ce qu'on a passé en props au composant	+    // La méthode et son argument sont tous les deux accessibles
+    console.log(this.props.name);	   // via des props qui ont été passées au composant
   }
+  
+
 
   render() {
     return (
@@ -48,11 +44,16 @@ class Machine extends React.Component {
           <div className= "Machine-header header">
             <h2>La vie se résume à ça : </h2>
           </div>
-          <p>{this.props.name}</p>
-          {/* On appelle handleClick avec (e) pour pouvoir accéder à this*/}
+          <p className="text">{this.props.name}</p>
+          {/* On appelle handleClick avec (e) pour pouvoir accéder à this
           <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
-            Activer
+            {this.props.isActive ? "Désactivé" : "Activé"}
+          </button>*/}
+          <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
+            {this.props.isActive ? "Désactivé" : "Activé"}
           </button>
+          <Toggle checked={this.props.isActive}
+                  onChange={(e) => this.onToggleClick(e)}/>
           <div className="Machine-footer footer">
             <p>I don't care I SHIP IT ! Why not ?</p>
           </div>
@@ -60,6 +61,8 @@ class Machine extends React.Component {
       )
   }
 }
+
+
 
 // Le composant sera accessible avec le nom "Machine"
 export default Machine;

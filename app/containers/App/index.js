@@ -5,6 +5,7 @@
  */
 import React from 'react';
 
+
 // On importe ici les composants qu'on veut afficher
 import Machine from '../../components/Machine.js';
 import Header from '../../components/Header.js';
@@ -18,38 +19,6 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 import CSS from '../../css/style.css';
 
 /*
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      Facts : [
-        {
-          name : "1",
-          desc : "Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-",
-          isActive: false,
-          lien: "https://www.google.fr/maps/place/Jardin+de+ville/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x478af4899452e6f1:0xc435876cef9752ae!8m2!3d45.1920031!4d5.7268167"
-        },
-        {
-          name : "2",
-          desc : "Shit... Harry and Draco will be in laws",
-          isActive: true,
-          lien: "https://www.google.fr/maps/place/La+Nef/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x0:0xa1e0921380eb20f3!8m2!3d45.1906156!4d5.7233673"
-        },
-        {
-          name : "3",
-          desc : "Shit... Weasley's and Malfoy's family will be in laws",
-          isActive: true,
-          lien: "https://www.google.fr/maps/place/Office+de+Tourisme+Grenoble-Alpes+M%C3%A9tropole/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x0:0xa735ba30cfba5ded!8m2!3d45.1903453!4d5.7302928"
-        },
-        {
-          name : "4",
-          desc : "Shit... Who will be planning the wedding between Molly and Narcissa ?!!!",
-          isActive: true,
-          lien: "https://www.google.fr/maps/place/Parc+Paul+Mistral+Grenoble/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x478af4f18f9b536d:0x27fb9854ae7d0cf2!8m2!3d45.1853755!4d5.7366282"
-        }
-      ]
-    };
-  }
   
   render(){
       return (
@@ -102,44 +71,6 @@ class App extends React.Component{
 // Par contre il fonctionne en tant que nouvel onglet à ouvrir
 // Ni à afficher une machine seule pour la "page produit"
 
-  const Show = ({ match }) => (
-    <div>
-      {match.params.Factname}
-    </div>
-    )
-  const Root = (props) => (
-    <div style={{
-      display: 'flex'
-    }} {...props}/>
-    )
-    
-  const Sidebar = (props) => (
-    <div style={{
-      width : '15%',
-      height: '100vh',
-      overflow: 'auto',
-      background: 'orange'
-    }} {...props}/>
-    )
-    
-  const SidebarItem = (props) => (
-    <div style={{
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      padding: '5px 10px'
-    }} {...props}/>
-    )
-        
-  const Main = (props) => (
-    <div style={{
-      flex: 1,
-      height: '100vh',
-      overflow: 'auto'
-    }}>
-      <div style= {{padding: '20px'}} {...props}/>
-    </div>
-    )
   */
   
   class App extends React.Component {
@@ -149,7 +80,7 @@ class App extends React.Component{
     this.handleStatusChange = this.handleStatusChange.bind(this);
 
     this.state = {
-      Facts: [
+      machines: [
         {
           id: 0,
           name: "Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-",
@@ -181,66 +112,41 @@ class App extends React.Component{
   // Méthode pour activer une machine
   handleStatusChange(key) {
     // 1. On copie le state existant
-    const Facts = { ...this.state.Facts };
+    const machines = { ...this.state.machines };
     // 2. On modifie le status de CETTE machine
-    Facts[key].isActive = true;
+    machines[key].isActive = !machines[key].isActive;
     // Pour vérifier la nouvelle collection dans la console :
-    console.log({ Facts });
-
+    console.log({ machines });
+console.log(machines[key]);
     // 3. On applique cette nouvelle collection au state
-    this.setState({ Facts });
+    this.setState({ machines });
   }
 
   render() {
     return (
       <div className="main">
         <Header/>
-        <BrowserRouter>
-          <Root>
-            <Sidebar className="Sidebar">
-              {
-                this.state.Facts.map(Fact =>
-                  <SidebarItem key={Fact.id} className="Item" >
-                    <Link to={"/Produit/${Fact.id}"} className="lienPro">
-                      Produit/Machine {Fact.id}
-                    </Link>
-                  </SidebarItem>
-                )
-              }
-            </Sidebar>
-            <Main className="Main">
-                <Route exact={true} path='/' render={() => (
-                  <h1>Liste de toutes les machines</h1>
-                )} />
-                {/*Conteneur de notre liste*/}
-                <div className="machines-list">
-                  {/*Boucle sur notre collection de machines*/}
-                  {
-                    Object
-                      .keys(this.state.Facts)
-                      .map(key =>
-                      // Le composant Machine s'affichera autant de fois
-                      // qu'il y a d'objets dans la collection.
-                      <div>
-                        <Machine name={this.state.Facts[key].name}
-                                 key={this.state.Facts[key].id}
-                                 index={this.state.Facts[key].id}
-                                 handleStatusChange={this.handleStatusChange}
-                                 isActive={this.state.Facts[key].isActive}/>
-                        <Link className="map" target="_blank" to={this.state.Facts[key].lien}>Lieu du "produit"</Link>
-                        <hr/>
-                      </div>
-                    )}
-                </div>
-                <Route path='/Produit/:Factname' component={Show}/>
-              </Main>
-            </Root>
-          </BrowserRouter>
+          {/*Conteneur de notre liste*/}
+          <div className="machines-list">
+            {/*Boucle sur notre collection de machines*/}
+            {
+              Object
+                .keys(this.state.machines)
+                .map(key =>
+                // Le composant Machine s'affichera autant de fois
+                // qu'il y a d'objets dans la collection.
+                <Machine name={this.state.machines[key].name}
+                         key={this.state.machines[key].id}
+                         index={this.state.machines[key].id}
+                         handleStatusChange={this.handleStatusChange}
+                         isActive={this.state.machines[key].isActive}/>
+              )}
+          </div>
         <Footer/>
       </div>
     );
   }
-}
+  }
   const Show = ({ match }) => (
     <div>
       {match.params.Factname}
@@ -279,7 +185,6 @@ class App extends React.Component{
       <div style= {{padding: '20px'}} {...props}/>
     </div>
     )
-    
     
 export default App;
 
