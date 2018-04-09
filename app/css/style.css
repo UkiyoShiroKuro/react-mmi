@@ -29,14 +29,14 @@
     font-weight: bold;
 }
 
-.machine_active h2{
-    color: green;
-    font-weight: bolder;
-}
 .machine h2{
     color: red;
 }
 
+.machine .active h2{
+    color: green;
+    font-weight: bolder;
+}
 
 /*BOUTON*/
 

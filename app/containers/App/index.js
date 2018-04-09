@@ -26,25 +26,25 @@ class App extends React.Component{
         {
           name : "1",
           desc : "Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-",
-          isActive: "false",
+          isActive: false,
           lien: "https://www.google.fr/maps/place/Jardin+de+ville/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x478af4899452e6f1:0xc435876cef9752ae!8m2!3d45.1920031!4d5.7268167"
         },
         {
           name : "2",
           desc : "Shit... Harry and Draco will be in laws",
-          isActive: "true",
+          isActive: true,
           lien: "https://www.google.fr/maps/place/La+Nef/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x0:0xa1e0921380eb20f3!8m2!3d45.1906156!4d5.7233673"
         },
         {
           name : "3",
           desc : "Shit... Weasley's and Malfoy's family will be in laws",
-          isActive:"true",
+          isActive:true,
           lien: "https://www.google.fr/maps/place/Office+de+Tourisme+Grenoble-Alpes+M%C3%A9tropole/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x0:0xa735ba30cfba5ded!8m2!3d45.1903453!4d5.7302928"
         },
         {
           name : "4",
           desc : "Shit... Who will be planning the wedding between Molly and Narcissa ?!!!",
-          isActive:"true",
+          isActive: true,
           lien: "https://www.google.fr/maps/place/Parc+Paul+Mistral+Grenoble/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x478af4f18f9b536d:0x27fb9854ae7d0cf2!8m2!3d45.1853755!4d5.7366282"
         }
       ]
