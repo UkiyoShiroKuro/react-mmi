@@ -1,4 +1,4 @@
-.h{
+/*.h{
     text-align: center;
     background-color: orange;
     padding: 1rem;
@@ -29,9 +29,17 @@
     font-weight: bold;
 }
 
+.machine {
+    color: red;
+}
+
+.machine .active {
+    color: green;
+    font-weight: bolder;
+}
 
 /*BOUTON*/
-
+/*
 .Bouton{
     text-align: right;
     margin-right: 20%;
@@ -69,6 +77,108 @@ hr{
 
 .map:hover{
     background-color: orange;
+}
+
+.Item{
+    margin: 15px 0;
+}
+
+.lienPro{
+    text-decoration: none;
+    color: white;
+    padding-left: 25%
+}
+
+.lienPro:hover{
+    color: black;
+}*/
+
+/* Layout */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header and footer, content listing */
+.h,
+.f {
+  padding: 20px 0;
+  text-align: center;
+  background-color: orange;
+}
+
+.machines-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+  justify-content: space-around;
+}
+
+.h {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/* Machines */
+.header{
+    font-weight: bolder;
+    color: red;
+}
+
+.footer{
+    font-size: smaller;
+    font-style: italic;
+    margin-left: 2rem;
+}
+.machine {
+  border-bottom: 1px solid #fdfdfd;
+  padding: 1rem 0;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.machine.active {
+  color: black;
+  text-shadow: 0px 0px 3px orange;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: 50%;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.map{
+    margin-left: 10%;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.map:hover{
+    background-color: orange;
+}
+
+hr{
+    height: 0;
+    overflow: visible;
+    margin: 3rem 0 1rem 0;
+    width: 60%;
 }
 
 .Item{
