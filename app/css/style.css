@@ -29,11 +29,11 @@
     font-weight: bold;
 }
 
-.machine h2{
+.machine {
     color: red;
 }
 
-.machine .active h2{
+.machine .active {
     color: green;
     font-weight: bolder;
 }
