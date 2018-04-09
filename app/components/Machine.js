@@ -9,7 +9,6 @@ import "react-toggle/style.css";
 
 
 class Machine extends React.Component {
-  
   // Méthode lancée au clic sur le bouton "Toggle"
   onToggleClick() {
     // On envoie l'index à la méthode qui changera la valeur

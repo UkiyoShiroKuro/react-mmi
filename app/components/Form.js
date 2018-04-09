@@ -63,7 +63,7 @@ class Form extends React.Component {
           <textarea value={this.state.lien} onChange={this.handleLienChange} />
         </label>
         <br/>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Ajouter une machine" />
       </form>
     );
   }

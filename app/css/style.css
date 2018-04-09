@@ -198,3 +198,8 @@ hr{
 .lienPro:hover{
     color: black;
 }
+
+.map-container {
+  height: 300px;
+  width: 100%;
+}
