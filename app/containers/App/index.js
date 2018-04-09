@@ -26,7 +26,7 @@ class App extends React.Component{
         {
           name : "1",
           desc : "Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-",
-          isActive: "true",
+          isActive: "false",
           lien: "https://www.google.fr/maps/place/Jardin+de+ville/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x478af4899452e6f1:0xc435876cef9752ae!8m2!3d45.1920031!4d5.7268167"
         },
         {

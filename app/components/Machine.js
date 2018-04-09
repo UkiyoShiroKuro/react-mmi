@@ -11,7 +11,7 @@ class Machine extends React.Component {
     return (
       <div>
         <div className="Machine big">
-          <div className="Machine-header header">
+          <div className= { this.props.isActive ? "machine_active" : "machine" }>
             <h2>{this.props.name} La vie se résume à ça : </h2>
           </div>
           <p className="text">{this.props.desc}</p> | {this.props.isActive}
