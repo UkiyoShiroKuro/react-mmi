@@ -38,7 +38,7 @@ class App extends React.Component{
         {
           name : "3",
           desc : "Shit... Weasley's and Malfoy's family will be in laws",
-          isActive:true,
+          isActive: true,
           lien: "https://www.google.fr/maps/place/Office+de+Tourisme+Grenoble-Alpes+M%C3%A9tropole/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x0:0xa735ba30cfba5ded!8m2!3d45.1903453!4d5.7302928"
         },
         {
