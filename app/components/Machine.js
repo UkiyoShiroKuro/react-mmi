@@ -45,11 +45,17 @@ class Machine extends React.Component {
     return (
         <div
         className= { this.props.isActive ? "machine active" : "machine" }> {/* Si isActive passée en props est à true, ajouter la classe "active" */}
-          {this.props.name}
+          <div className= "Machine-header header">
+            <h2>La vie se résume à ça : </h2>
+          </div>
+          <p>{this.props.name}</p>
           {/* On appelle handleClick avec (e) pour pouvoir accéder à this*/}
           <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
             Activer
           </button>
+          <div className="Machine-footer footer">
+            <p>I don't care I SHIP IT ! Why not ?</p>
+          </div>
         </div>
       )
   }
