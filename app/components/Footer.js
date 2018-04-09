@@ -11,5 +11,5 @@ class Footer extends React.Component {
   }
 }
 
-// Le composant sera accessible avec le nom "Machine"
+// Le composant sera accessible
 export default Footer;

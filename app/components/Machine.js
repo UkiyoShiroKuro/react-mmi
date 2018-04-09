@@ -9,22 +9,8 @@ import "react-toggle/style.css";
 
 
 class Machine extends React.Component {
+  
   // Méthode lancée au clic sur le bouton "Toggle"
-  /*constructor(props) {
-    super(props);
-    this.state = {
-      isActive: true
-    };
-    
-    this.handleClick = this.handleClick.bind(this);
-  }
-  
-  handleClick() {
-    this.setState(prevState => ({
-      isActive: !prevState.isActive
-    }));
-  }*/
-  
   onToggleClick() {
     // On envoie l'index à la méthode qui changera la valeur
     // La méthode et son argument sont tous les deux accessibles

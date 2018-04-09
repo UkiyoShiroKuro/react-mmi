@@ -11,6 +11,7 @@ import Machine from '../../components/Machine.js';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
 import Bouton from '../../components/Bouton.js';
+import Form from '../../components/Form.js';
 
 //React Rooter
 import { BrowserRouter, Link, Route } from 'react-router-dom';
@@ -84,7 +85,7 @@ import CSS from '../../css/style.css';
         {
           id: 0,
           name: "Albus Potter is in love with Scorpius Malfoy -shit, the in-laws...-",
-          isActive: false,
+          isActive: true,
           lien: "https://www.google.fr/maps/place/Jardin+de+ville/@45.1855857,5.6996716,14z/data=!4m5!3m4!1s0x478af4899452e6f1:0xc435876cef9752ae!8m2!3d45.1920031!4d5.7268167"
         },
         {
@@ -102,7 +103,7 @@ import CSS from '../../css/style.css';
         {
           id: 3,
           name: "Shit... Who will be planning the wedding between Molly and Narcissa ?!!!",
-          isActive: true,
+          isActive: false,
           lien: "https://www.google.fr/maps/place/Parc+Paul+Mistral+Grenoble/@45.1850041,5.727014,15.82z/data=!4m5!3m4!1s0x478af4f18f9b536d:0x27fb9854ae7d0cf2!8m2!3d45.1853755!4d5.7366282"
         }
       ]
@@ -121,6 +122,7 @@ console.log(machines[key]);
     // 3. On applique cette nouvelle collection au state
     this.setState({ machines });
   }
+
 
   render() {
     return (
@@ -141,6 +143,7 @@ console.log(machines[key]);
                          handleStatusChange={this.handleStatusChange}
                          isActive={this.state.machines[key].isActive}/>
               )}
+            <Form/>
           </div>
         <Footer/>
       </div>
