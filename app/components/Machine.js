@@ -49,9 +49,6 @@ class Machine extends React.Component {
           <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
             {this.props.isActive ? "Désactivé" : "Activé"}
           </button>*/}
-          <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
-            {this.props.isActive ? "Désactivé" : "Activé"}
-          </button>
           <Toggle checked={this.props.isActive}
                   onChange={(e) => this.onToggleClick(e)}/>
           <div className="Machine-footer footer">
