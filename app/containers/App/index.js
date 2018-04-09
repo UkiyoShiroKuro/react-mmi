@@ -87,8 +87,7 @@ class App extends React.Component{
                     )
                   }
                   
-                  <Route path='/Produit/:Factname' component={Show}>
-                  </Route>
+                  <Route path='/Produit/:Factname' component={Show}/>
                 </Main>
               </Root>
             </BrowserRouter>
@@ -116,7 +115,7 @@ class App extends React.Component{
     
   const Sidebar = (props) => (
     <div style={{
-      width : '20%',
+      width : '15%',
       height: '100vh',
       overflow: 'auto',
       background: 'orange'
