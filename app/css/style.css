@@ -123,6 +123,13 @@ hr{
   padding: 1rem;
 }
 
+/*Conteur*/
+.counter {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 1.4em;
+}
+
 /* Machines */
 .header{
     font-weight: bolder;
@@ -202,4 +209,35 @@ hr{
 .map-container {
   height: 300px;
   width: 100%;
+}
+
+/* Formulaire d'ajout */
+.add-machine-form {
+  background-color: #f3f3f3;
+  padding: 30px;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 1.4em;
+}
+
+.add-machine-form input,
+.add-machine-form select {
+  background-color: #eaeaea;
+  padding: 4px 6px;
+  margin-right: 10px;
+}
+
+.btn-form {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 10px;
+  margin-left: 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.btn-form:hover {
+  background-color: orange;
+  cursor: pointer;
 }

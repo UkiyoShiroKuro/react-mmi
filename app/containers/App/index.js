@@ -84,6 +84,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
     super(props);
 
     this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.addMachineToState = this.addMachineToState.bind(this);
 
     this.state = {
       center: {
@@ -133,15 +134,32 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
     this.setState({ machines });
   }
   
-  addMachineToState(machine){
-    console.log("addMachineToState")
+  addMachineToState(machine) {
+    console.log("addMachineToState");
+    console.log(machine);
+    const machines = { ...this.state.machines };
+    /*var newMachine = machine.concat([machine.states]);*/
+    this.setState({ machines });
   }
 
 
   render() {
+    
+    const machinesIds = Object.keys(this.state.machines);
+    const totalActive = machinesIds.reduce((prevTotal, key) => {
+      const machine = this.state.machines[key];
+      const isAvailable = machine && machine.isActive;
+      return isAvailable ? prevTotal + 1 : prevTotal
+    }, 0);
+    const total = machinesIds.length;
+    
     return (
       <div className="main">
         <Header/>
+        <Form addMachineToState={this.addMachineToState}/>
+          <div className="counter">
+            <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
+          </div>
           {/*Conteneur de notre liste*/}
           <div className="machines-list">
             {/*Boucle sur notre collection de machines*/}
@@ -157,7 +175,6 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
                          handleStatusChange={this.handleStatusChange}
                          isActive={this.state.machines[key].isActive}/>
               )}
-            <Form/>
             <div className="map-container">
               <GoogleMapReact
                 bootstrapURLKeys={{ key: "AIzaSyBU_IEeDtk0fIKfm18yj8bD6DDaJ0N-3e4" }}
