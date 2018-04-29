@@ -160,6 +160,17 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
           <div className="counter">
             <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
           </div>
+          <Sidebar className="Sidebar">
+                {
+                  this.state.machines.map(machines =>
+                    <SidebarItem key={machines.id} className="Item" >
+                      <Link to={"/Produit/${machine.id}"} className="lienPro">
+                        Machine {machines.id}
+                      </Link>
+                    </SidebarItem>
+                  )
+                }
+                </Sidebar>
           {/*Conteneur de notre liste*/}
           <div className="machines-list">
             {/*Boucle sur notre collection de machines*/}
