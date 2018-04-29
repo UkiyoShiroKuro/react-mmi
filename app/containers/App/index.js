@@ -156,11 +156,9 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
     return (
       <div className="main">
         <Header/>
-        <Form addMachineToState={this.addMachineToState}/>
-          <div className="counter">
-            <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
-          </div>
-          <Sidebar className="Sidebar">
+          <BrowserRouter>
+            <Root>
+              <Sidebar className="Sidebar">
                 {
                   this.state.machines.map(machines =>
                     <SidebarItem key={machines.id} className="Item" >
@@ -170,35 +168,46 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
                     </SidebarItem>
                   )
                 }
-                </Sidebar>
-          {/*Conteneur de notre liste*/}
-          <div className="machines-list">
-            {/*Boucle sur notre collection de machines*/}
-            {
-              Object
-                .keys(this.state.machines)
-                .map(key =>
-                // Le composant Machine s'affichera autant de fois
-                // qu'il y a d'objets dans la collection.
-                <Machine name={this.state.machines[key].name}
-                         key={this.state.machines[key].id}
-                         index={this.state.machines[key].id}
-                         handleStatusChange={this.handleStatusChange}
-                         isActive={this.state.machines[key].isActive}/>
-              )}
-            <div className="map-container">
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyBU_IEeDtk0fIKfm18yj8bD6DDaJ0N-3e4" }}
-                defaultCenter={this.state.center}
-                defaultZoom={this.state.zoom}
-              >
-                <AnyReactComponent
-                  lat={this.state.center.lat}
-                  lng={this.state.center.lng}
-                />
-              </GoogleMapReact>
-            </div>
-          </div>
+              </Sidebar>
+              <Main className="Main">
+                <Route exact={true} path='/' render={() => (
+                  <h1>Liste de toutes les machines</h1>
+                )} />
+               <Form addMachineToState={this.addMachineToState}/>
+                <div className="counter">
+                  <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
+                </div>
+                {/*Conteneur de notre liste*/}
+                <div className="machines-list">
+                  {/*Boucle sur notre collection de machines*/}
+                  {
+                    Object
+                      .keys(this.state.machines)
+                      .map(key =>
+                      // Le composant Machine s'affichera autant de fois
+                      // qu'il y a d'objets dans la collection.
+                      <Machine name={this.state.machines[key].name}
+                               key={this.state.machines[key].id}
+                               index={this.state.machines[key].id}
+                               handleStatusChange={this.handleStatusChange}
+                               isActive={this.state.machines[key].isActive}/>
+                    )}
+                  <div className="map-container">
+                    <GoogleMapReact
+                      bootstrapURLKeys={{ key: "AIzaSyBU_IEeDtk0fIKfm18yj8bD6DDaJ0N-3e4" }}
+                      defaultCenter={this.state.center}
+                      defaultZoom={this.state.zoom}
+                    >
+                      <AnyReactComponent
+                        lat={this.state.center.lat}
+                        lng={this.state.center.lng}
+                      />
+                    </GoogleMapReact>
+                  </div>
+                </div>
+              </Main>
+            </Root>
+          </BrowserRouter>
         <Footer/>
       </div>
     );
