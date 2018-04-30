@@ -21,8 +21,6 @@ class Machine extends React.Component {
     // La méthode et son argument sont tous les deux accessibles
     console.log(this.props.name);	   // via des props qui ont été passées au composant
   }
-  
-
 
   render() {
     return (
@@ -32,10 +30,7 @@ class Machine extends React.Component {
             <h2>La vie se résume à ça : </h2>
           </div>
           <p className="text">{this.props.name}</p>
-          {/* On appelle handleClick avec (e) pour pouvoir accéder à this
-          <button onClick={(e) => this.onToggleClick(e)} type="button" className="btn">
-            {this.props.isActive ? "Désactivé" : "Activé"}
-          </button>*/}
+          {/* On appelle onToggleClick avec (e) pour pouvoir accéder à this*/}
           <Toggle checked={this.props.isActive}
                   onChange={(e) => this.onToggleClick(e)}/>
           <div className="Machine-footer footer">
@@ -45,8 +40,6 @@ class Machine extends React.Component {
       )
   }
 }
-
-
 
 // Le composant sera accessible avec le nom "Machine"
 export default Machine;
