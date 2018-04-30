@@ -160,13 +160,15 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
             <Root>
               <Sidebar className="Sidebar">
                 {
-                  this.state.machines.map(machines =>
-                    <SidebarItem key={machines.id} className="Item" >
-                      <Link to={"/Produit/${machine.id}"} className="lienPro">
-                        Machine {machines.id}
-                      </Link>
-                    </SidebarItem>
-                  )
+                  Object
+                    .keys(this.state.machines)
+                    .map(key =>
+                      <SidebarItem key={this.state.machines[key].id} className="Item" >
+                        <Link to={"/Produit/${machines.id}"} className="lienPro">
+                          Machine {this.state.machines[key].id}
+                        </Link>
+                      </SidebarItem>
+                    )
                 }
               </Sidebar>
               <Main className="Main">
@@ -205,6 +207,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
                     </GoogleMapReact>
                   </div>
                 </div>
+                <Route path='/machine/:MachineName' component={Show}/>
               </Main>
             </Root>
           </BrowserRouter>
@@ -215,7 +218,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
   }
   const Show = ({ match }) => (
     <div>
-      {match.params.Factname}
+      {match.params.MachineName}
     </div>
     )
   const Root = (props) => (

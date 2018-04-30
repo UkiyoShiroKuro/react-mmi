@@ -30,5 +30,5 @@ class Form extends React.Component {
   }
 }
 
-// Le composant sera accessible avec le nom "Machine"
+// Le composant sera accessible avec le nom "Form"
 export default Form;
