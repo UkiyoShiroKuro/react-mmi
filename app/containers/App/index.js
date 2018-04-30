@@ -16,9 +16,14 @@ import Form from '../../components/Form.js';
 //React Rooter
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 
+//Google Maps
+import GoogleMapReact from 'google-map-react';
+
 // On peut aussi importer du CSS de la meme facon.
 import CSS from '../../css/style.css';
 
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 /*
   
   render(){
@@ -79,8 +84,14 @@ import CSS from '../../css/style.css';
     super(props);
 
     this.handleStatusChange = this.handleStatusChange.bind(this);
+    this.addMachineToState = this.addMachineToState.bind(this);
 
     this.state = {
+      center: {
+        lat: 48.8566,
+        lng: 2.3522
+      },
+      zoom: 11,
       machines: [
         {
           id: 0,
@@ -118,33 +129,85 @@ import CSS from '../../css/style.css';
     machines[key].isActive = !machines[key].isActive;
     // Pour vérifier la nouvelle collection dans la console :
     console.log({ machines });
-console.log(machines[key]);
+    console.log(machines[key]);
     // 3. On applique cette nouvelle collection au state
+    this.setState({ machines });
+  }
+  
+  addMachineToState(machine) {
+    console.log("addMachineToState");
+    console.log(machine);
+    const machines = { ...this.state.machines };
+    /*var newMachine = machine.concat([machine.states]);*/
     this.setState({ machines });
   }
 
 
   render() {
+    
+    const machinesIds = Object.keys(this.state.machines);
+    const totalActive = machinesIds.reduce((prevTotal, key) => {
+      const machine = this.state.machines[key];
+      const isAvailable = machine && machine.isActive;
+      return isAvailable ? prevTotal + 1 : prevTotal
+    }, 0);
+    const total = machinesIds.length;
+    
     return (
       <div className="main">
         <Header/>
-          {/*Conteneur de notre liste*/}
-          <div className="machines-list">
-            {/*Boucle sur notre collection de machines*/}
-            {
-              Object
-                .keys(this.state.machines)
-                .map(key =>
-                // Le composant Machine s'affichera autant de fois
-                // qu'il y a d'objets dans la collection.
-                <Machine name={this.state.machines[key].name}
-                         key={this.state.machines[key].id}
-                         index={this.state.machines[key].id}
-                         handleStatusChange={this.handleStatusChange}
-                         isActive={this.state.machines[key].isActive}/>
-              )}
-            <Form/>
-          </div>
+          <BrowserRouter>
+            <Root>
+              <Sidebar className="Sidebar">
+                {
+                  this.state.machines.map(machines =>
+                    <SidebarItem key={machines.id} className="Item" >
+                      <Link to={"/Produit/${machine.id}"} className="lienPro">
+                        Machine {machines.id}
+                      </Link>
+                    </SidebarItem>
+                  )
+                }
+              </Sidebar>
+              <Main className="Main">
+                <Route exact={true} path='/' render={() => (
+                  <h1>Liste de toutes les machines</h1>
+                )} />
+               <Form addMachineToState={this.addMachineToState}/>
+                <div className="counter">
+                  <strong>{totalActive}</strong> / <strong>{total}</strong> Machines actives
+                </div>
+                {/*Conteneur de notre liste*/}
+                <div className="machines-list">
+                  {/*Boucle sur notre collection de machines*/}
+                  {
+                    Object
+                      .keys(this.state.machines)
+                      .map(key =>
+                      // Le composant Machine s'affichera autant de fois
+                      // qu'il y a d'objets dans la collection.
+                      <Machine name={this.state.machines[key].name}
+                               key={this.state.machines[key].id}
+                               index={this.state.machines[key].id}
+                               handleStatusChange={this.handleStatusChange}
+                               isActive={this.state.machines[key].isActive}/>
+                    )}
+                  <div className="map-container">
+                    <GoogleMapReact
+                      bootstrapURLKeys={{ key: "AIzaSyBU_IEeDtk0fIKfm18yj8bD6DDaJ0N-3e4" }}
+                      defaultCenter={this.state.center}
+                      defaultZoom={this.state.zoom}
+                    >
+                      <AnyReactComponent
+                        lat={this.state.center.lat}
+                        lng={this.state.center.lng}
+                      />
+                    </GoogleMapReact>
+                  </div>
+                </div>
+              </Main>
+            </Root>
+          </BrowserRouter>
         <Footer/>
       </div>
     );

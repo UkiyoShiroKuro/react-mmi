@@ -1,69 +1,30 @@
 import React from 'react';
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        name: 'Name your Machine...',
-        isActive: true,
-        lien : 'Lien url Google maps'
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleLienChange = this.handleLienChange.bind(this);
-  }
   
-  //Modifier nom
-    handleNameChange(event) {
-    this.setState({name: event.target.value,});
-  }
-  
-  //Modifier isAtive
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-  
-      handleLienChange(event) {
-    this.setState({lien: event.target.value,});
-  }
-  
-  //Bouton Envoyer
-  handleSubmit(event) {
-    alert('Votre machine a bien été ajoutée !');
+  onAddClick(event) {
+    // Empêcher le rechargement de la page
     event.preventDefault();
+
+    // On stocke les valeurs du formulaire dans une variable newMachine
+    const newMachine = {
+      name: this.name.value,
+      status: this.status.value
+    }
+    
+    this.props.addMachineToState();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-       <label>
-          Name your Machine : 
-          <textarea value={this.state.name} onChange={this.handleNameChange} />
-        </label>
-        <br/>
-        <label>
-          Your machine is actived ? 
-          <input
-            name="isActive"
-            type="checkbox"
-            checked={this.state.isActive}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Lien : 
-          <textarea value={this.state.lien} onChange={this.handleLienChange} />
-        </label>
-        <br/>
-        <input type="submit" value="Submit" />
+      
+      <form ref={(input) => this.machineForm = input} onSubmit={(e) => this.onAddClick(e)} className="add-machine-form">
+        Nom : <input ref={(input) => this.name = input} type="text"  placeholder="Nom de la machine" />
+        <select ref={(input) => this.status = input}>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+        <button type="submit" className="btn-form">+ Ajouter une machine</button>
       </form>
     );
   }
